@@ -399,7 +399,8 @@
       cb();
     };
 
-    schema.methods.authenticate = function(cb) { // callback style but actually synchronous to allow for decryptSync without copypasta or complication
+    // renamed to authenticateDb because authenticate overrides the passport plugins
+    schema.methods.authenticateDb = function(cb) { // callback style but actually synchronous to allow for decryptSync without copypasta or complication
       try {
         schema.methods.authenticateSync.call(this);
       } catch(e){
